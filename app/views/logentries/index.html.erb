@@ -1,14 +1,16 @@
-<header>Reviews for <%= link_to(@book.title, @book) %></header>
-<ol id="reviews">
-  <% @reviews.each do |review| %>
+<header>Log Entries for <%= link_to(@wine.name, @wine) %></header>
+<ol id="logentries">
+  <% @logentries.each do |logentry| %>
     <li>
-      <span class="review"><%= pluralize(review.stars, 'star') %></span>
-      <span class="user">by <%= review.name %> </span>
+      <span class="logentry"><%= pluralize(logentry.stars, 'star') %></span>
+      <span class="rating">by <%= logentry.rating %> </span>
+      <span class="user">by <%= logentry.name %> </span>
+      <span class="location">at <%= logentry.location %> </span>
       <span class="date">
-        <%= time_ago_in_words(review.created_at) %> ago
+        <%= time_ago_in_words(logentry.tasted_on) %> ago
       </span>
       <p>
-        &quot;<%= review.comment %>&quot;
+        &quot;<%= logentry.comment %>&quot;
       </p>
     </li>
   <% end %>

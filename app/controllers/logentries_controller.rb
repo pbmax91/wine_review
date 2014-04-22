@@ -1,13 +1,13 @@
 class LogentriesController < ApplicationController
-	before_action :set_book
+	before_action :set_wine
 
 	def index
-	  @reviews = @book.reviews.order('created_at desc')
+	  @logentries = @wine.logentries.order('created_at desc')
 	end
 
 	private
 
-	def set_book
-	  @book = Book.find(params[:book_id])
+	def set_wine
+	  @wine = Wine.find(params[:wine_id])
 	end
 end
